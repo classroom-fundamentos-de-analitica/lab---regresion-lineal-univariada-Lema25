@@ -31,7 +31,7 @@ def pregunta_01():
     y_reshaped = y.reshape(len(y), 1)
 
     # Trasforme `X` a un array de numpy usando reshape
-
+    X_reshaped = X.reshape(len(X), 1)
 
     # Imprima las nuevas dimensiones de `y`
     print(y_reshaped.shape)
@@ -62,7 +62,7 @@ def pregunta_02():
     print(type(df["fertility"]))
 
     # Imprima la correlación entre las columnas `GDP` y `life` con 4 decimales.
-
+    print(df['GDP'].corr(df['life']).round(decimals=4))
 
 
 def pregunta_03():
@@ -99,7 +99,7 @@ def pregunta_03():
     y_pred = reg.predict(prediction_space)
 
     # Imprima el R^2 del modelo con 4 decimales
-
+    print(reg.score(X_fertility.reshape(-1, 1), y_life).round(4))
 
 
 def pregunta_04():
@@ -145,6 +145,5 @@ def pregunta_04():
 
     # Compute and print R^2 and RMSE
     print("R^2: {:6.4f}".format(linearRegression.score(X_test.reshape(-1, 1), y_test)))
-
+    rmse = np.sqrt(mean_squared_error(y_test, y_pred))
     print("Root Mean Squared Error: {:6.4f}".format(rmse))
-
